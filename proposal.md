@@ -1,19 +1,21 @@
 # Post Format Views
 
+## Problem
+
+Core post formats, as implemented, are incomplete and do not provide enough of a baseline for themes to extend.
+
 ## Concept
 
-One of the primary failings of how post formats were implemented when introduced, was the lack of a baseline of how content assigned to one fo those formats might be treated. We would propose to introduce base templates for ahow to display each of the default post formats; this would take the form of a core-supplied template part callable (and overrideable) by the theme.
+One of the primary failings of how post formats were implemented when introduced, was the lack of baseline templates showing how post formats could be leveraged by themes.
 
-Result: Give themes a baseline template for how post formats could be treated in a theme to highlight sections of content tagged as a particular post format.
+We would propose to extend the existing Template Hierarchy system to include a list of core-supplied template parts to be tied to specific post formats, all completely overrideable by the current theme.
+
+In addition, we would propose to deprecate less-common default post formats, and possibly add the ability to introduce new ones while simultaneously giving core the ability to automagically handle newly-registered formats the same way as built-in ones. 
+
 
 ## Affected APIs
 * Post Formats
-* Template Hierarchy
-* Themes (template parts)
-
-## Premise
-
-Provide a core-supplied default template parts used tied to individual post formats. Like files provided in wpinc/theme-compat/, these template parts could be loaded by the theme by name, or optionally overridden by a theme.
+* Themes (template parts and template hierarchy)
 
 ## Goals
 * Create core-supported base template parts for each established post format
